@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>777</width>
-    <height>587</height>
+    <width>853</width>
+    <height>667</height>
    </rect>
   </property>
   <property name="cursor">
@@ -26,7 +26,7 @@
       <x>50</x>
       <y>10</y>
       <width>80</width>
-      <height>24</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -37,9 +37,9 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>40</y>
-      <width>711</width>
-      <height>511</height>
+      <y>200</y>
+      <width>791</width>
+      <height>431</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -58,21 +58,21 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>-1625</y>
+       <y>0</y>
        <width>709</width>
-       <height>3000</height>
+       <height>2000</height>
       </rect>
      </property>
      <property name="minimumSize">
       <size>
        <width>709</width>
-       <height>3000</height>
+       <height>2000</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
        <width>709</width>
-       <height>3000</height>
+       <height>2000</height>
       </size>
      </property>
      <widget class="QLabel" name="label">
@@ -102,59 +102,255 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QLineEdit" name="st_edit">
+   <widget class="QSpinBox" name="spinBox_transt">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>110</y>
+      <width>35</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>0</number>
+    </property>
+    <property name="maximum">
+     <number>7</number>
+    </property>
+    <property name="value">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>50</y>
+      <width>791</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QCheckBox" name="checkBox_tongcheng">
+       <property name="text">
+        <string>允许同城换乘</string>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_yeche">
+       <property name="text">
+        <string>禁用夜车</string>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_jingt">
+       <property name="text">
+        <string>禁用高铁（G/D）</string>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_onlygt">
+       <property name="text">
+        <string>只看高铁（G/D）</string>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_xfzz">
+       <property name="text">
+        <string>夕发朝至</string>
+       </property>
+       <property name="tristate">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_lingchen">
+       <property name="text">
+        <string>避免夜间上下车</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_9">
     <property name="geometry">
      <rect>
       <x>140</x>
       <y>10</y>
-      <width>113</width>
-      <height>23</height>
+      <width>231</width>
+      <height>31</height>
      </rect>
     </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_9">
+     <property name="spacing">
+      <number>20</number>
+     </property>
+     <item>
+      <widget class="QLineEdit" name="st_edit">
+       <property name="text">
+        <string>隆回</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="ed_edit">
+       <property name="text">
+        <string>北京西</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QLineEdit" name="ed_edit">
+   <widget class="QSpinBox" name="spinBox_stm1">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>10</y>
-      <width>113</width>
-      <height>23</height>
+      <x>92</x>
+      <y>110</y>
+      <width>41</width>
+      <height>24</height>
      </rect>
     </property>
-    <property name="text">
-     <string/>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximum">
+     <number>59</number>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_tongcheng">
+   <widget class="QSpinBox" name="spinBox_stt1">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>10</y>
-      <width>81</width>
-      <height>22</height>
+      <x>44</x>
+      <y>110</y>
+      <width>42</width>
+      <height>24</height>
      </rect>
     </property>
-    <property name="text">
-     <string>同城换乘</string>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
-    <property name="tristate">
-     <bool>false</bool>
+    <property name="maximum">
+     <number>23</number>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_yeche">
+   <widget class="QSpinBox" name="spinBox_stm2">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>10</y>
-      <width>81</width>
-      <height>22</height>
+      <x>198</x>
+      <y>110</y>
+      <width>42</width>
+      <height>24</height>
      </rect>
     </property>
-    <property name="text">
-     <string>禁用夜车</string>
+    <property name="minimum">
+     <number>0</number>
     </property>
-    <property name="tristate">
-     <bool>false</bool>
+    <property name="maximum">
+     <number>59</number>
+    </property>
+    <property name="value">
+     <number>59</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_stt2">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>110</y>
+      <width>42</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>23</number>
+    </property>
+    <property name="value">
+     <number>23</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_edm1">
+    <property name="geometry">
+     <rect>
+      <x>332</x>
+      <y>110</y>
+      <width>42</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>59</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_edt1">
+    <property name="geometry">
+     <rect>
+      <x>284</x>
+      <y>110</y>
+      <width>42</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>23</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_edt2">
+    <property name="geometry">
+     <rect>
+      <x>392</x>
+      <y>110</y>
+      <width>42</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>23</number>
+    </property>
+    <property name="value">
+     <number>23</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_edm2">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>110</y>
+      <width>41</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>0</number>
+    </property>
+    <property name="maximum">
+     <number>59</number>
+    </property>
+    <property name="value">
+     <number>59</number>
     </property>
    </widget>
   </widget>
@@ -163,13 +359,19 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>777</width>
+     <width>853</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>pushButton</tabstop>
+  <tabstop>checkBox_yeche</tabstop>
+  <tabstop>spinBox_transt</tabstop>
+  <tabstop>scrollArea</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
