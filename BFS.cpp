@@ -106,8 +106,6 @@ void BFS(int S, int T, bool Ttag, bool Ytag, bool Gban, bool Gonly, bool lingche
     }
 }
 void init(){
-    clock_t start, end;
-    start = clock();
     freopen("C:/Users/28956/Desktop/hello/in.txt", "r", stdin);
     int m, id;
     string station;
@@ -122,8 +120,6 @@ void init(){
     while (cin >> u >> v >> w >> info >> y) {
         addedge(u, v, w, info, y);
     }
-    end = clock();
-    cout << "Time: " << (double)(end - start) / CLOCKS_PER_SEC << "s" << endl;
 }
 void start(MainWindow* W, string ST, string ED, bool T, bool Y, int stt1, int stm1,
            int stt2, int stm2, int edt1, int edm1, int edt2, int edm2, int transt, bool Gban, bool Gonly, bool lingchen){
@@ -133,6 +129,8 @@ void start(MainWindow* W, string ST, string ED, bool T, bool Y, int stt1, int st
     vector<string> ststations, edstations;
     Stringsplit(ST, " ", ststations);
     Stringsplit(ED, " ", edstations);
+    clock_t start, end;
+    start = clock();
     for (int i = 0; i < ststations.size(); i++) {
         for (int j = 0; j < edstations.size(); j++) {
             if (mp.find(ststations[i]) == mp.end() || mp.find(edstations[j]) == mp.end())
@@ -145,6 +143,8 @@ void start(MainWindow* W, string ST, string ED, bool T, bool Y, int stt1, int st
             }
         }
     }
+    end = clock();
+    cout<<(string("搜索用时：") + to_string((double)(end - start) / CLOCKS_PER_SEC) + "s").c_str();
     for (int i = 0; i < res.size(); i++) {
         int len = res[i].resinfo.size();
         string lastime = "";
@@ -168,12 +168,30 @@ void start(MainWindow* W, string ST, string ED, bool T, bool Y, int stt1, int st
     for (int i = 0; i < res.size(); i++) {
         if (res[i].restime > BADLIM * res[0].restime)
             break;
-        for (int j = 0; j < res[i].resinfo.size(); j++) {
-            show += res[i].resinfo[j] + " ";
+        bool tag = true;
+        for (int j = 1; j < res[i].resinfo.size() - 2; j += 2) {
+            size_t colonpos1 = res[i].resinfo[j].find("：");
+            size_t colonpos2 = res[i].resinfo[j + 2].find("：");
+            if (colonpos1 != string::npos && colonpos2 != string::npos && res[i].resinfo[j].substr(0, colonpos1) == res[i].resinfo[j + 2].substr(0, colonpos2)) {
+                tag = false;
+            }
         }
-        show += "\n";
+        if (!tag)
+            continue;
+        for (int j = 0; j < res[i].resinfo.size(); j++) {
+            show += "<span style='line-height=200px'>";
+            if (res[i].resinfo[j].length() > 4)
+                show += res[i].resinfo[j] + " ";
+            else if (res[i].resinfo[j] == "T")
+                show += string("同城换乘") + " ";
+            else if (res[i].resinfo[j] == "W")
+                show += string("候车") + " ";
+            show += "</span>";
+        }
+        show += "<br><br>";
         cnt++;
     }
-    W->ModifyLength(ceil(16.0 * cnt));
+    W->ModifyLength(ceil(40.0 * cnt));
     W->ModifyText(show.c_str());
+    W->ModifySearchTime((string("搜索用时：") + to_string((double)(end - start) / CLOCKS_PER_SEC) + "s").c_str());
 }

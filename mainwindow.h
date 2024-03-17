@@ -19,6 +19,7 @@ public:
 
     void ModifyText(const char* s);
     void ModifyLength(const int len);
+    void ModifySearchTime(const char *s);
 private:
     Ui::MainWindow *ui;
 private slots:

@@ -7,7 +7,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->label->setText("");
     init();
 }
 
@@ -23,6 +22,10 @@ void MainWindow::ModifyText(const char* s){
 void MainWindow::ModifyLength(const int len){
     ui->scrollAreaWidgetContents->setMaximumHeight(len);
     ui->scrollAreaWidgetContents->setMinimumHeight(len);
+}
+
+void MainWindow::ModifySearchTime(const char *s){
+    ui->label_time->setText(s);
 }
 
 void MainWindow::on_pushButton_clicked()

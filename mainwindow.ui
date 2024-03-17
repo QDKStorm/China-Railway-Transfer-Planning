@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>853</width>
-    <height>667</height>
+    <width>1077</width>
+    <height>813</height>
    </rect>
   </property>
   <property name="cursor">
@@ -38,8 +38,8 @@
      <rect>
       <x>50</x>
       <y>200</y>
-      <width>791</width>
-      <height>431</height>
+      <width>1000</width>
+      <height>571</height>
      </rect>
     </property>
     <property name="maximumSize">
@@ -59,19 +59,19 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>709</width>
+       <width>1000</width>
        <height>2000</height>
       </rect>
      </property>
      <property name="minimumSize">
       <size>
-       <width>709</width>
+       <width>1000</width>
        <height>2000</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>709</width>
+       <width>1000</width>
        <height>2000</height>
       </size>
      </property>
@@ -80,15 +80,20 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>709</width>
+        <width>1000</width>
         <height>16777215</height>
        </rect>
       </property>
       <property name="minimumSize">
        <size>
-        <width>709</width>
+        <width>1000</width>
         <height>10000000</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
       </property>
       <property name="text">
        <string/>
@@ -126,7 +131,7 @@
      <rect>
       <x>50</x>
       <y>50</y>
-      <width>791</width>
+      <width>1001</width>
       <height>41</height>
      </rect>
     </property>
@@ -353,13 +358,26 @@
      <number>59</number>
     </property>
    </widget>
+   <widget class="QLabel" name="label_time">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>160</y>
+      <width>421</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>搜索用时：</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>853</width>
+     <width>1077</width>
      <height>21</height>
     </rect>
    </property>
