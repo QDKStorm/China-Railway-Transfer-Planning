@@ -106,7 +106,7 @@ void BFS(int S, int T, bool Ttag, bool Ytag, bool Gban, bool Gonly, bool lingche
     }
 }
 void init(){
-    freopen("C:/Users/28956/Desktop/hello/in.txt", "r", stdin);
+    freopen("./in.txt", "r", stdin);
     int m, id;
     string station;
     cin >> m;
