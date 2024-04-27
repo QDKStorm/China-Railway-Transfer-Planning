@@ -24,7 +24,6 @@ private:
     Ui::MainWindow *ui;
 private slots:
     void on_pushButton_clicked();
-    void on_checkBox_tongcheng_2_stateChanged(int arg1);
     void on_checkBox_xfzz_stateChanged(int arg1);
 };
 #endif // MAINWINDOW_H
