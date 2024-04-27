@@ -16,6 +16,10 @@
   <property name="windowTitle">
    <string>12306火车中转查询</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>R.png</normaloff>R.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="cursor">
     <cursorShape>ArrowCursor</cursorShape>

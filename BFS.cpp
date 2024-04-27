@@ -5,6 +5,7 @@
 #include <map>
 #include <stack>
 #include <string>
+#include <utility>
 #include <vector>
 #include <Qfile>
 #include "mainwindow.h"
@@ -14,9 +15,9 @@
 #define SPLIT 24 * 60 / INTERVAL
 #define BADLIM 2.0
 using namespace std;
-int tot, head[N], h, t, depth_lim = 3, best = 0x7fffffff;
+int tot, head[N], h, t, depth_lim = 3, best = 0x7fffffff, times[300000];
 stack<string> st;
-map<string, int> mp;
+map<pair<string, int>, pair<int, int>> mp;
 vector<string> message;
 struct Edge {
     int v, w, nxt;
@@ -106,14 +107,16 @@ void BFS(int S, int T, bool Ttag, bool Ytag, bool Gban, bool Gonly, bool lingche
     }
 }
 void init(){
-    freopen("./in.txt", "r", stdin);
-    int m, id;
+    freopen("./graph.txt", "r", stdin);
+    int n, m, io, st, len;
     string station;
-    cin >> m;
-    while(m--){
-        cin>>station>>id;
-        mp[station] = id;
+    cin >> n >> m;
+    while (m--) {
+        cin >> station >> io >> st >> len;
+        mp[make_pair(station, io)] = make_pair(st, len);
     }
+    for (int i = 0; i < n; i++)
+        cin >> times[i];
     int u, v, w;
     string info;
     char y;
@@ -125,7 +128,7 @@ void start(MainWindow* W, string ST, string ED, bool T, bool Y, int stt1, int st
            int stt2, int stm2, int edt1, int edm1, int edt2, int edm2, int transt, bool Gban, bool Gonly, bool lingchen){
     res.clear();
     depth_lim = 2 * transt + 1;
-    best = 0x7fffffff;
+    best = 0x3fffffff;
     vector<string> ststations, edstations;
     Stringsplit(ST, " ", ststations);
     Stringsplit(ED, " ", edstations);
@@ -133,11 +136,15 @@ void start(MainWindow* W, string ST, string ED, bool T, bool Y, int stt1, int st
     start = clock();
     for (int i = 0; i < ststations.size(); i++) {
         for (int j = 0; j < edstations.size(); j++) {
-            if (mp.find(ststations[i]) == mp.end() || mp.find(edstations[j]) == mp.end())
+            if (mp.find(make_pair(ststations[i], 1)) == mp.end() || mp.find(make_pair(edstations[j], 0)) == mp.end())
                 continue;
-            int st = mp[ststations[i]], ed = mp[edstations[j]];
-            for (int i = st * SPLIT * 2 + SPLIT + 60 / INTERVAL * stt1 + ceil(stm1 / (double)INTERVAL); i <= st * SPLIT * 2 + SPLIT + 60 / INTERVAL * stt2 + stm2 / INTERVAL; i++) {
-                for (int j = ed * SPLIT * 2 + 60 / INTERVAL * edt1 + ceil(edm1 / (double)INTERVAL); j <= ed * SPLIT * 2 + 60 / INTERVAL * edt2 + edm2 / INTERVAL; j++) {
+            pair<int, int> st = mp[make_pair(ststations[i], 1)], ed = mp[make_pair(edstations[j], 0)];
+            for (int i = st.first; i < st.first + st.second; i++) {
+                if (times[i] < stt1 * 60 + stm1 || times[i] > stt2 * 60 + stm2)
+                    continue;
+                for (int j = ed.first; j < ed.first + ed.second; j++) {
+                    if (times[j] < edt1 * 60 + edm1 || times[j] > edt2 * 60 + edm2)
+                        continue;
                     BFS(i, j, T, Y, Gban, Gonly, lingchen);
                 }
             }
